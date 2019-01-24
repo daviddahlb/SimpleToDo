@@ -3,6 +3,7 @@ package com.daviddahlb.simpletodo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -45,8 +46,20 @@ public class MainActivity extends AppCompatActivity{
             itemsAdapter.add(itemText);
             etNewItem.setText("");
             writeItems();
-            Toast.makeText(getApplicationContext(), "Item added to list", Toast.LENGTH_SHORT).show();
+            scrollMyListViewToBottom();
+            Toast toast = Toast.makeText(getApplicationContext(), "Item added to list", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL,0, 250);
+            toast.show();
         }
+    }
+
+    private void scrollMyListViewToBottom(){
+        lvItems.post(new Runnable() {
+            @Override
+            public void run() {
+                lvItems.setSelection(itemsAdapter.getCount() - 1);
+            }
+        });
     }
 
     private void setupListViewListener(){
