@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import org.apache.commons.io.FileUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -26,13 +28,11 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        items = new ArrayList<>();
+        readItems();
+
         itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
         lvItems = (ListView) findViewById(R.id.ListView);
         lvItems.setAdapter(itemsAdapter);
-
-        items.add("First Item");
-        items.add("Second Item");
 
         setupListViewListener();
 
@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity{
         String itemText = etNewItem.getText().toString();
         itemsAdapter.add(itemText);
         etNewItem.setText("");
+        writeItems();
         Toast.makeText(getApplicationContext(), "Item added to list", Toast.LENGTH_SHORT).show();
     }
 
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity{
                 Log.i("MainActivity", "Item removed from list" + position);
                 items.remove(position);
                 itemsAdapter.notifyDataSetChanged();
+                writeItems();
                 return true;
             }
         });
