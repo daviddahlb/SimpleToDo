@@ -20,14 +20,17 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [x] Cannot add empty strings
 * [x] Added image for Add Button
+* [x] Improved UI functionality
+    * [x] Auto scroll to bottom of list after Adding Item to make it clear to user it was added
+    * [x] Adjust Toast to top of screen, clear of on-screen keyboard
+    * [x] Cannot add empty strings
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/daviddahlb/SimpleToDo/blob/master/SimpleToDoGIF.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
