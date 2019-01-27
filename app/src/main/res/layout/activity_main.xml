@@ -8,18 +8,19 @@
 
     <ImageButton
         android:id="@+id/add_button"
-        app:srcCompat="@drawable/ic_add"
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:onClick="onAddItem"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginBottom="24dp"
         android:background="@null"
-        android:scaleType="fitXY"/>
+        android:contentDescription="@string/add_button"
+        android:onClick="onAddItem"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/ic_add" />
 
     <ListView
         android:id="@+id/ListView"
@@ -43,7 +44,12 @@
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="25dp"
         android:ems="10"
-        android:hint="Enter a description..."
-        android:inputType="textPersonName" />
+        android:hint="@string/enter_a_description"
+        android:inputType="textPersonName"
+        android:autofillHints="@null" tools:targetApi="o"
+        android:layout_toStartOf="@id/add_button"
+        android:layout_toLeftOf="@id/add_button"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"/>
 
 </RelativeLayout>
