@@ -36,7 +36,10 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+
+-Dialog fragment for edit would be smoother
+-Confusing 'Plus' button
+-Try to implement sqlite
 
 ## License
 
